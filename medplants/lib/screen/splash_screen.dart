@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medplants/screen/home_page.dart';
+import 'package:medplants/theme/theme_color.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0XFF27963C),
+      backgroundColor: ThemeColor().greenBaseColor,
       body: Center(
           child: Image.asset(
         'assets/logo.png',
