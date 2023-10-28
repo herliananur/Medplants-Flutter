@@ -18,7 +18,8 @@ class HomePage extends StatelessWidget {
             CustomButton(
                 labelText: "Upload Gambar",
                 imagePath: 'assets/up-logo.png',
-                onPressed: () {}),
+                onPressed: () { appModel.navigateToMedScreen();
+                  Navigator.pushNamed(context, '/upScreen');}),
             CustomButton(
                 labelText: "Ambil Gambar",
                 imagePath: 'assets/cam-logo.png',
