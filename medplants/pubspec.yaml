@@ -17,6 +17,10 @@ dependencies:
   tflite: ^1.1.2
   image_picker: ^1.0.4
   meta: ^1.9.1
+  tflite_flutter: ^0.10.3
+  tflite_flutter_helper_plus: ^0.0.2
+  http: ^1.1.0
+
 
 dev_dependencies:
   flutter_test:

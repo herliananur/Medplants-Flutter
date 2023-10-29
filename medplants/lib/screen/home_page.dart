@@ -11,15 +11,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final appModel = Provider.of<AppModel>(context);
     return Scaffold(
+      // appBar: AppBar(backgroundColor: ThemeColor().greenBaseColor,),
       backgroundColor: ThemeColor().greenBaseColor,
+
       body: Center(
         child: Column(
           children: [
+            SizedBox(
+              height: 50,
+            ),
             CustomButton(
                 labelText: "Upload Gambar",
                 imagePath: 'assets/up-logo.png',
-                onPressed: () { appModel.navigateToMedScreen();
-                  Navigator.pushNamed(context, '/upScreen');}),
+                onPressed: () {
+                  appModel.navigateToMedScreen();
+                  Navigator.pushNamed(context, '/upScreen');
+                }),
             CustomButton(
                 labelText: "Ambil Gambar",
                 imagePath: 'assets/cam-logo.png',
