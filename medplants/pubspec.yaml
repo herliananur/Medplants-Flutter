@@ -34,8 +34,8 @@ flutter:
 
   assets:
     - assets/
-    - assets/medplants.tflite
-    - assets/label.txt
+    - assets/model_unquant.tflite
+    - assets/labels.txt
 
   # fonts:
   #   - family: Schyler
