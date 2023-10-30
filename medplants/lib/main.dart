@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:medplants/API_plant/model/med_screen_viewmodel.dart';
 import 'package:medplants/classifier/image_classification_screen.dart';
 import 'package:medplants/model/app_model.dart';
 import 'package:medplants/screen/home_page.dart';
-import 'package:medplants/API_plant/med_screen.dart';
+import 'package:medplants/API_plant/screen/med_screen.dart';
 import 'package:medplants/screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => AppModel(),
-    child: MyApp(),
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (_) => AppModel(),
+      ),ChangeNotifierProvider(
+        create: (_) => MedScreenViewModel(),
+      ),
+    ],
+    child: const MyApp(),
   ));
 }
 
@@ -22,10 +29,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => SplashScreen(),
-        '/homePage': (context) => HomePage(),
-        '/medScreen': (context) => PlantList(),
-        '/upScreen': (context) => ImageClassificationScreen(),
+        '/': (context) => const SplashScreen(),
+        '/homePage': (context) => const HomePage(),
+        '/medScreen': (context) => const MedScreen(),
+        '/upScreen': (context) => const ImageClassificationScreen(),
         // '/botScreen': (context) => PlantBotScreen(),
       },
     );
