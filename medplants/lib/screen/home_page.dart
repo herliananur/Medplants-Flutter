@@ -11,9 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final appModel = Provider.of<AppModel>(context);
     return Scaffold(
-      // appBar: AppBar(backgroundColor: ThemeColor().greenBaseColor,),
       backgroundColor: ThemeColor().greenBaseColor,
-
       body: Center(
         child: Column(
           children: [
@@ -28,9 +26,12 @@ class HomePage extends StatelessWidget {
                   Navigator.pushNamed(context, '/upScreen');
                 }),
             CustomButton(
-                labelText: "Ambil Gambar",
+                labelText: "PlantBot",
                 imagePath: 'assets/cam-logo.png',
-                onPressed: () {}),
+                onPressed: () {
+                  appModel.navigateToMedScreen();
+                  Navigator.pushNamed(context, '/botScreen');
+                }),
             CustomButton(
                 labelText: "Tanaman Obat",
                 imagePath: 'assets/med-logo.png',
@@ -90,36 +91,3 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
-
-
-// class MyCard extends StatelessWidget {
-//   final String logoImage;
-//   final String title;
-
-//   const MyCard(this.logoImage, this.title, {super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//       shape: RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(25),
-//       ),
-//       child: Column(
-//         mainAxisSize: MainAxisSize.min,
-//         children: [
-//           ClipRRect(
-//             borderRadius: BorderRadius.circular(25),
-//             child: Image.asset('assets/$logoImage'),
-//           ),
-//           ListTile(
-//             title: Center(
-//                 child: Text(
-//               title,
-//               style: ThemeTextStyle().judulText,
-//             )),
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }

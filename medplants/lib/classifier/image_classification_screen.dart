@@ -5,14 +5,15 @@ import 'package:image_picker/image_picker.dart';
 import 'package:medplants/theme/theme_color.dart';
 import 'package:tflite/tflite.dart';
 
-class TfliteJadii extends StatefulWidget {
-  const TfliteJadii({super.key});
+class ImageClassificationScreen extends StatefulWidget {
+  const ImageClassificationScreen({super.key});
 
   @override
-  State<TfliteJadii> createState() => _TfliteJadiiState();
+  State<ImageClassificationScreen> createState() =>
+      _ImageClassificationScreenState();
 }
 
-class _TfliteJadiiState extends State<TfliteJadii> {
+class _ImageClassificationScreenState extends State<ImageClassificationScreen> {
   XFile? _image;
   List<dynamic>? _outputs;
 
@@ -33,9 +34,7 @@ class _TfliteJadiiState extends State<TfliteJadii> {
       imageStd: 255.0,
     );
     setState(() {
-      //declare list _outputs in the class which will be used to show the classified class name dan confidence
       _outputs = output;
-      //
       _image = image;
     });
   }
@@ -52,14 +51,13 @@ class _TfliteJadiiState extends State<TfliteJadii> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Image Classification'),
+        title: const Text('Image Classification'),
         backgroundColor: ThemeColor().greenBaseColor,
       ),
       body: _image == null
           ? Container(
               alignment: Alignment.center,
-              child: Text('No image selected.'),
-              // child: CircularProgressIndicator(),
+              child: const Text('No image selected.'),
             )
           : Container(
               width: MediaQuery.of(context).size.width,
@@ -68,13 +66,14 @@ class _TfliteJadiiState extends State<TfliteJadii> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   _image == null ? Container() : Image.file(File(_image!.path)),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   _outputs != null
                       ? Text(
                           '${_outputs![0]["label"]}',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 20),
                         )
                       : Container()
                 ],
@@ -83,7 +82,7 @@ class _TfliteJadiiState extends State<TfliteJadii> {
       floatingActionButton: FloatingActionButton(
         onPressed: _optiondialogbox,
         backgroundColor: ThemeColor().greenTransparant,
-        child: Icon(Icons.image),
+        child: const Icon(Icons.image),
       ),
     );
   }
@@ -106,7 +105,7 @@ class _TfliteJadiiState extends State<TfliteJadii> {
                   ),
                   onTap: openCamera,
                 ),
-                Padding(padding: EdgeInsets.all(10)),
+                const Padding(padding: EdgeInsets.all(10)),
                 GestureDetector(
                   child: Text(
                     'Select Image',
@@ -128,9 +127,6 @@ class _TfliteJadiiState extends State<TfliteJadii> {
 
     if (image == null) return;
     classifyImage(image);
-    // setState(() {
-    //   _image = image;
-    // });
   }
 
   Future openGallery() async {
@@ -138,8 +134,5 @@ class _TfliteJadiiState extends State<TfliteJadii> {
 
     if (picture == null) return;
     classifyImage(picture);
-    // setState(() {
-    //   _image = XFile(picture!.path);
-    // });
   }
 }

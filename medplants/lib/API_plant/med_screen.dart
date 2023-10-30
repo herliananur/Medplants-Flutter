@@ -18,7 +18,6 @@ class _PlantListState extends State<PlantList> {
   }
 
   fetchPlants() async {
-    // Replace the token with your own
     String token = "DAlQ2IdeL8NmTwS-h5ex1FX9T7cn7DSL2icXjy5BpHY";
     String url = "https://trefle.io/api/v1/plants?token=$token";
     var response = await http.get(Uri.parse(url));
@@ -37,10 +36,10 @@ class _PlantListState extends State<PlantList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Plant List"),
+        title: const Text("Plant List"),
       ),
       body: loading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : ListView.builder(
@@ -50,7 +49,7 @@ class _PlantListState extends State<PlantList> {
                 return ListTile(
                   leading: plant["image_url"] != null
                       ? Image.network(plant["image_url"])
-                      : Icon(Icons.image),
+                      : const Icon(Icons.image),
                   title: Text(plant["common_name"] ?? "Unknown"),
                   subtitle: Text(plant["scientific_name"]),
                   onTap: () {
@@ -83,12 +82,12 @@ class PlantDetail extends StatelessWidget {
           children: [
             plant["image_url"] != null
                 ? Image.network(plant["image_url"])
-                : Icon(Icons.image, size: 200),
+                : const Icon(Icons.image, size: 200),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 plant["bibliography"] ?? "No description available",
-                style: TextStyle(fontSize: 18),
+                style: const TextStyle(fontSize: 18),
               ),
             ),
           ],
