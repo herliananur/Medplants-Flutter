@@ -4,7 +4,6 @@ import 'package:medplants/model/app_model.dart';
 import 'package:medplants/screen/home_page.dart';
 import 'package:medplants/screen/med_screen.dart';
 import 'package:medplants/screen/splash_screen.dart';
-import 'package:medplants/screen/upload_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {

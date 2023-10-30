@@ -12,8 +12,8 @@ class TfliteModel extends StatefulWidget {
 }
 
 class _TfliteModelState extends State<TfliteModel> {
-  late File _image;
-  late List _results;
+   File? _image;
+   List? _results;
   bool imageSelect = false;
   @override
   void initState() {
@@ -22,7 +22,7 @@ class _TfliteModelState extends State<TfliteModel> {
   }
 
   Future loadModel() async {
-    Tflite.close();
+    await Tflite.close();
     String res;
     res = (await Tflite.loadModel(
       model: 'assets/medplants.tflite',
@@ -57,7 +57,7 @@ class _TfliteModelState extends State<TfliteModel> {
           (imageSelect)
               ? Container(
                   margin: const EdgeInsets.all(10),
-                  child: Image.file(_image),
+                  child: Image.file(_image!),
                 )
               : Container(
                   margin: const EdgeInsets.all(10),
@@ -71,13 +71,14 @@ class _TfliteModelState extends State<TfliteModel> {
           SingleChildScrollView(
               child: Column(
                   children: (imageSelect)
-                      ? _results.map(
+                      ? _results!.map(
                           (result) {
                             return Card(
                               child: Container(
                                 margin: const EdgeInsets.all(10),
                                 child: Text(
-                                  '${result['label']} - ${result['confidence'].toStringAsFixed(2)}',
+                                  '${result[0]['label']}',
+                                  // '${result['label']} - ${result['confidence'].toStringAsFixed(2)}',
                                   style: const TextStyle(
                                       color: Colors.red, fontSize: 20),
                                 ),
@@ -101,7 +102,11 @@ class _TfliteModelState extends State<TfliteModel> {
     final XFile? pickedFile = await _picker.pickImage(
       source: ImageSource.gallery,
     );
-    File image = File(pickedFile!.path);
-    imageClassification(image);
+    File? image = pickedFile?.path != null ? File(pickedFile!.path) : null;
+    if (image != null) {
+      imageClassification(image);
+    }
+    // File image = File(pickedFile!.path);
+    // imageClassification(image);
   }
 }
