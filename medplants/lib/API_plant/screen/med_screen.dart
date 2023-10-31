@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medplants/API_plant/model/med_screen_viewmodel.dart';
 import 'package:medplants/API_plant/screen/med_detail.dart';
+import 'package:medplants/theme/theme_color.dart';
 import 'package:provider/provider.dart';
 
 class MedScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _MedScreenState extends State<MedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: ThemeColor().greenBaseColor,
         title: const Text("Plant List"),
       ),
       body: medScreenProvider.isLoading
