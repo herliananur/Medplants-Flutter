@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medplants/classifier/image_classification_screen.dart';
+import 'package:medplants/classifier/screen/image_classification_screen.dart';
 import 'package:medplants/screen/home_page.dart';
 import 'package:medplants/theme/theme_color.dart';
 

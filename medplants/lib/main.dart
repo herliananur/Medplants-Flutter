@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medplants/API_plant/model/med_screen_viewmodel.dart';
-import 'package:medplants/classifier/image_classification_screen.dart';
+import 'package:medplants/classifier/model/image_classification_viewmodel.dart';
+import 'package:medplants/classifier/screen/image_classification_screen.dart';
 import 'package:medplants/model/app_model.dart';
 import 'package:medplants/screen/home_page.dart';
 import 'package:medplants/API_plant/screen/med_screen.dart';
@@ -12,8 +13,12 @@ void main() {
     providers: [
       ChangeNotifierProvider(
         create: (_) => AppModel(),
-      ),ChangeNotifierProvider(
+      ),
+      ChangeNotifierProvider(
         create: (_) => MedScreenViewModel(),
+      ),
+      ChangeNotifierProvider(
+        create: (_) => ImageClassificationViewModel(),
       ),
     ],
     child: const MyApp(),
