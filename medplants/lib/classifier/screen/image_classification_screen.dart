@@ -38,8 +38,8 @@ class _ImageClassificationScreenState extends State<ImageClassificationScreen> {
               alignment: Alignment.center,
               child: Text('No image selected.'),
             )
-          : Container(
-              width: MediaQuery.of(context).size.width,
+          : SingleChildScrollView(
+              // width: MediaQuery.of(context).size.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
