@@ -20,10 +20,6 @@ class _ImageClassificationScreenState extends State<ImageClassificationScreen> {
   @override
   void initState() {
     super.initState();
-    // imageClassificationViewModel =
-    //     Provider.of<ImageClassificationViewModel>(context);
-
-    // imageClassificationViewModel.loadModel();
   }
 
   @override
@@ -46,102 +42,13 @@ class _ImageClassificationScreenState extends State<ImageClassificationScreen> {
             _currentIndex = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.camera_alt), label: 'Camera'),
           BottomNavigationBarItem(icon: Icon(Icons.photo), label: 'Gallery'),
         ],
       ),
-      // imageClassificationViewModel.image == null
-      //     ? Container(
-      //         alignment: Alignment.center,
-      //         child: Text('No image selected.'),
-      //       )
-      //     : SingleChildScrollView(
-      //         // width: MediaQuery.of(context).size.width,
-      //         child: Column(
-      //           crossAxisAlignment: CrossAxisAlignment.center,
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           children: [
-      //             imageClassificationViewModel.image == null
-      //                 ? Container()
-      //                 : Image.file(
-      //                     File(imageClassificationViewModel.image!.path)),
-      //             SizedBox(
-      //               height: 16,
-      //             ),
-      //             imageClassificationViewModel.outputs != null
-      //                 ? Text(
-      //                     '${imageClassificationViewModel.outputs![0]["label"]}',
-      //                     style: TextStyle(
-      //                         color: ThemeColor().blackColor, fontSize: 20),
-      //                   )
-      //                 : Container()
-      //           ],
-      //         ),
-      //       ),
-      // floatingActionButton: Row(
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: [
-      //     ElevatedButton(
-      //       onPressed: imageClassificationViewModel.openCamera,
-      //       style: ElevatedButton.styleFrom(
-      //           backgroundColor: ThemeColor().greenTransparant),
-      //       child: Icon(Icons.camera_alt),
-      //     ),
-      //     SizedBox(
-      //       width: 16,
-      //     ),
-      //     ElevatedButton(
-      //       onPressed: imageClassificationViewModel.openGallery,
-      //       style: ElevatedButton.styleFrom(
-      //           backgroundColor: ThemeColor().greenTransparant),
-      //       child: Icon(Icons.photo),
-      //     ),
-      // FloatingActionButton(
-      //   onPressed: imageViewModel.openCamera,
-      //   backgroundColor: ThemeColor().greenTransparant,
-      //   child: Icon(Icons.camera_alt),
-      // ),
-      // FloatingActionButton(
-      //   onPressed: imageViewModel.openGallery,
-      //   backgroundColor: ThemeColor().greenTransparant,
-      //   child: Icon(Icons.image),
-      // ),
-      // ],
     );
-    // );
-    // _image == null
-    //     ? Container(
-    //         alignment: Alignment.center,
-    //         child: const Text('No image selected.'),
-    //       )
-    //     : Container(
-    //         width: MediaQuery.of(context).size.width,
-    //         child: Column(
-    //           crossAxisAlignment: CrossAxisAlignment.center,
-    //           mainAxisAlignment: MainAxisAlignment.center,
-    //           children: <Widget>[
-    //             _image == null ? Container() : Image.file(File(_image!.path)),
-    //             const SizedBox(
-    //               height: 20,
-    //             ),
-    //             _outputs != null
-    //                 ? Text(
-    //                     '${_outputs![0]["label"]}',
-    //                     style: const TextStyle(
-    //                         color: Colors.black, fontSize: 20),
-    //                   )
-    //                 : Container()
-    //           ],
-    //         ),
-    //       ),
-    // floatingActionButton: FloatingActionButton(
-    //   onPressed: _optiondialogbox,
-    //   backgroundColor: ThemeColor().greenTransparant,
-    //   child: const Icon(Icons.image),
-    // ),
-    // );
   }
 
   Widget _buildPage(int index) {
@@ -150,7 +57,7 @@ class _ImageClassificationScreenState extends State<ImageClassificationScreen> {
     } else if (index == 1) {
       return _buildGalleryPage();
     }
-    return Container(); // Tambahkan halaman lain jika diperlukan
+    return Container();
   }
 
   Widget _buildCameraPage() {
@@ -162,7 +69,7 @@ class _ImageClassificationScreenState extends State<ImageClassificationScreen> {
           imageClassificationViewModel.image == null
               ? Container()
               : Image.file(File(imageClassificationViewModel.image!.path)),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           imageClassificationViewModel.outputs != null
@@ -172,14 +79,14 @@ class _ImageClassificationScreenState extends State<ImageClassificationScreen> {
                       TextStyle(color: ThemeColor().blackColor, fontSize: 20),
                 )
               : Container(),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           ElevatedButton(
             onPressed: imageClassificationViewModel.openCamera,
             style: ElevatedButton.styleFrom(
                 backgroundColor: ThemeColor().greenTransparant),
-            child: Text('Open Camera'),
+            child: const Text('Open Camera'),
           ),
         ],
       ),
@@ -195,7 +102,7 @@ class _ImageClassificationScreenState extends State<ImageClassificationScreen> {
           imageClassificationViewModel.image == null
               ? Container()
               : Image.file(File(imageClassificationViewModel.image!.path)),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           imageClassificationViewModel.outputs != null
@@ -205,14 +112,14 @@ class _ImageClassificationScreenState extends State<ImageClassificationScreen> {
                       TextStyle(color: ThemeColor().blackColor, fontSize: 20),
                 )
               : Container(),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           ElevatedButton(
             onPressed: imageClassificationViewModel.openGallery,
             style: ElevatedButton.styleFrom(
                 backgroundColor: ThemeColor().greenTransparant),
-            child: Text('Upload Image'),
+            child: const Text('Upload Image'),
           ),
         ],
       ),
