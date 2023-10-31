@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medplants/classifier/screen/image_classification_screen.dart';
-import 'package:medplants/screen/home_page.dart';
+import 'package:medplants/Form/screen/form_screen.dart';
 import 'package:medplants/theme/theme_color.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => HomePage(),
+        builder: (context) => const FormScreen(),
       ),
     );
   }

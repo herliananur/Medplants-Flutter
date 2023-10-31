@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             CustomButton(
@@ -24,13 +24,6 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   appModel.navigateToMedScreen();
                   Navigator.pushNamed(context, '/upScreen');
-                }),
-            CustomButton(
-                labelText: "PlantBot",
-                imagePath: 'assets/cam-logo.png',
-                onPressed: () {
-                  appModel.navigateToMedScreen();
-                  Navigator.pushNamed(context, '/botScreen');
                 }),
             CustomButton(
                 labelText: "Tanaman Obat",
